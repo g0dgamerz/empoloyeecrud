@@ -1,0 +1,41 @@
+{{page-title "Index"}}
+
+<div class="container">
+<h3>Employee Tabulated List</h3>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">MaritalStatus</th>
+      <th scope="col">Gender</th>
+      <th scope="col">National ID</th>
+      <th scope="col">Vaccation Hour</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each @model as |emp|}}
+
+    <tr>
+      <td>{{emp.employeeID}}</td>
+      <td>{{emp.employeeName}}</td>
+      <td>{{emp.birthDate}}</td>
+      <td>{{emp.maritalStatus}}</td>
+      <td>{{emp.gender}}</td>
+      <td>{{emp.nationalIDNumber}}</td>
+      <td>{{emp.vacationHours}}</td>
+      <td>
+      <i class="fa-solid fa-pen-to-square"></i>
+      <i class="fa-solid fa-trash-can"></i>
+      </td>
+    </tr>
+   {{/each}}
+
+  </tbody>
+</table>
+
+</div>
+
+{{outlet}}

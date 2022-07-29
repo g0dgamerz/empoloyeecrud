@@ -10,4 +10,8 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     let url = `${this.host}/${this.namespace}/${type.modelName}`;
     return $.get(url);
   }
+  findRecord(store, type, id) {
+    let url = `${this.host}/${this.namespace}/${type.modelName}/${id}`;
+    return $.get(url);
+  }
 }
