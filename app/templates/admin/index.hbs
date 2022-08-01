@@ -2,6 +2,7 @@
 
 <div class="container">
 <h3>Employee Tabulated List</h3>
+<LinkTo @route="admin.create"><button class="btn btn-primary" type="button"><i class="fa-solid fa-plus"></i>New Employee</button></LinkTo>
   <table class="table">
   <thead>
     <tr>
@@ -27,8 +28,11 @@
       <td>{{emp.nationalIDNumber}}</td>
       <td>{{emp.vacationHours}}</td>
       <td>
-      <i class="fa-solid fa-pen-to-square"></i>
-      <i class="fa-solid fa-trash-can"></i>
+        <LinkTo @route="admin.employeedetails" @model={{emp.employeeID}}>
+        <button type="button" class="btn btn-success">
+      <i class="fa-solid fa-pen-to-square"></i></button></LinkTo>
+      <button type="button" class="btn btn-danger" onclick={{action "deleteEmployee" emp}}>
+      <i class="fa-solid fa-trash-can"></i></button>
       </td>
     </tr>
    {{/each}}

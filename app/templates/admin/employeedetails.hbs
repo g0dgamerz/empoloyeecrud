@@ -1,0 +1,52 @@
+{{page-title 'Employee'}}
+<div class='container'>
+  <form onsubmit={{action "editEmployee" }}>
+    <h3>Employee Details of {{@model.employeeName}}</h3>
+   <div class="input-group mb-3">
+   <span class="input-group-text">Employee ID</span>
+  <Input type="text" class="form-control" placeholder="Username" aria-label="Username" @value={{@model.employeeID}} />
+   <span class="input-group-text">National ID</span>
+  <Input type="text" class="form-control" id="nationalIDNumber" @value={{@model.nationalIDNumber}} />
+  &nbsp;&nbsp;&nbsp;
+  <span class="input-group-text">Employee Name</span>
+  <Input type="text" class="form-control" placeholder="Server" aria-label="Server" @value={{@model.employeeName}}/>
+  </div>
+     <div class="input-group mb-3">
+   <span class="input-group-text">Login ID</span>
+  <Input type="text" class="form-control" placeholder="Username" aria-label="Username" @value={{@model.loginID}}/>
+  &nbsp;&nbsp;&nbsp;
+  <span class="input-group-text">Job Title</span>
+  <Input type="text" class="form-control" placeholder="Server" aria-label="Server" @value={{@model.jobTitle}} />
+  </div>
+     <div class="input-group mb-3">
+   <span class="input-group-text">Birth date</span>
+  <Input id="datepicker" type="date" class="form-control" @value={{@model.birthDate}}/>
+  &nbsp;&nbsp;&nbsp;
+  <span class="input-group-text">Marital Status</span>
+  <Input type="text" class="form-control" placeholder="M" @value={{@model.maritalStatus}}/>
+  </div>
+     <div class="input-group mb-3">
+   <span class="input-group-text">Gender</span>
+  <Input type="text" class="form-control" @value={{@model.gender}}/>
+  <span class="input-group-text">Hire Date</span>
+  <Input type="date" class="form-control" id="datepicker" @value={{@model.hireDate}} />
+  </div>
+     <div class="input-group mb-3">
+   <span class="input-group-text">Vacation Hour</span>
+  <Input type="date" id="datepicker" class="form-control" @value={{@model.vacationHours}} />
+  &nbsp;&nbsp;&nbsp;
+  <span class="input-group-text">Sick Leave Hour</span>
+  <Input type="date" class="form-control" @value={{@model.sickLeaveHours}} />
+  </div>
+     <div class="input-group mb-3">
+   <span class="input-group-text">Row Guid</span>
+  <Input type="text" class="form-control" @value={{@model.rowGuid}} />
+  &nbsp;&nbsp;&nbsp;
+  <span class="input-group-text">Modified Date</span>
+  <Input type="date" id="datepicker" class="form-control" @value={{@model.modifiedDate}} />
+  </div>
+    <button type="submit" class="btn btn-primary">Update Employee</button>
+</form>
+</div>
+{{outlet}}
+

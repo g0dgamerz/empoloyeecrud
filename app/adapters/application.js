@@ -14,4 +14,36 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     let url = `${this.host}/${this.namespace}/${type.modelName}/${id}`;
     return $.get(url);
   }
+  deleteRecord(store, type, snapshot) {
+    return $.ajax({
+      type: 'DELETE',
+      url: `${this.host}/${this.namespace}/${type.modelName}/${snapshot.id}`,
+    });
+  }
+  createRecord(store, type, snapshot) {
+    let data = {};
+    let serializer = store.serializerFor(type.modelName);
+    serializer.serializeIntoHash(data, type, snapshot);
+    console.log(JSON.stringify(data.employee));
+    return $.ajax({
+      type: 'POST',
+      url: `${this.host}/${this.namespace}/${type.modelName}`,
+      data: JSON.stringify(data.employee),
+      contentType: 'application/json',
+    });
+  }
+  updateRecord(store, type, snapshot) {
+    let data = {};
+    let serializer = store.serializerFor(type.modelName);
+    serializer.serializeIntoHash(data, type, snapshot);
+    console.log('test');
+    console.log(JSON.stringify(data.employee));
+    //console.log(data.employee);
+    return $.ajax({
+      type: 'PUT',
+      url: `${this.host}/${this.namespace}/${type.modelName}/${snapshot.id}`,
+      data: JSON.stringify(data.employee),
+      contentType: 'application/json',
+    });
+  }
 }
