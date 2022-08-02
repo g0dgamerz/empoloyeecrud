@@ -2,37 +2,43 @@
 <center>
 <div class="border border-dark mt-5" style="width: 50%">
   <center>
-  <form>
+  <form {{action "login" on='submit'}}>
     <h3>Admin Log In</h3>
     <div class='row'>
       <div class='mx-auto col-lg-6 col-lg-offset-4'>
         <div class='mx-auto ml-3'>
-          <label for='exampleInputEmail1' class='form-label'>Email address</label>
-          <input
-            type='email'
+          <label for='username' class='form-label'>Username</label>
+          <Input
+            type='text'
             class='form-control col-sm-3'
-            id='exampleInputEmail1'
-            aria-describedby='emailHelp'
+            id='userName'
+            @value={{this.username}}
+            onchange={{action "update" this.username}}
           />
-          <div id='emailHelp' class='form-text'>We'll never share your email
+          <div id='emailHelp' class='form-text'>We'll never share your personal details
             with anyone else.</div>
         </div>
         <div class='mb-3'>
           <label
-            for='exampleInputPassword1'
+            for='password'
             class='col-form-label'
           >Password</label>
-          <input
+          <Input
             type='password'
             class='form-control col-sm-3 col-form-label'
-            id='exampleInputPassword1'
+            id='password'
+            @value={{this.password}}
+            onchange={{action 'update' this.password}}
           />
         </div>
 
-        <button type='submit' class='btn btn-primary mb-3'>Submit</button>
+        <button type='submit' class='btn btn-primary mb-3'>Login</button>
       </div>
     </div>
   </form>
+  {{!-- {{#if error}}
+    <p><strong>{{error}}</strong></p>
+  {{/if}} --}}
   </center>
 </div>
 </center>

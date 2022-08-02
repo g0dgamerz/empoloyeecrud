@@ -1,11 +1,36 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 /* eslint-disable ember/no-jquery */
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
+import { inject as service } from '@ember/service';
+// eslint-disable-next-line ember/no-mixins
+import TokenAdapterMixin from 'ember-simple-auth-token/mixins/token-adapter';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+// import { computed } from '@ember/object';
 import $ from 'jquery';
 
-export default class ApplicationAdapter extends JSONAPIAdapter {
+class ApplicationAdapter extends JSONAPIAdapter {
+  @service session;
   namespace = 'api';
   host = 'https://localhost:7108';
 
+  // eslint-disable-next-line ember/use-brace-expansion
+  // @computed('session.isAuthenticated', 'session.data.authenticated.token')
+  // headers() {
+  //   if (this.session.isAutenticated) {
+  //     return {
+  //       Authorization: `Bearer ${this.session.data.authenticated.token}`,
+  //     };
+  //   } else {
+  //     return {};
+  //   }
+  // }
+  // handleResponse(status) {
+  //   if (status === 401 && this.session.isAutenticated) {
+  //     this.session.invalidate();
+  //   }
+  //   return super.handleResponse(...arguments);
+  // }
   findAll(store, type) {
     let url = `${this.host}/${this.namespace}/${type.modelName}`;
     return $.get(url);
@@ -47,3 +72,5 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     });
   }
 }
+
+export default ApplicationAdapter.extend(TokenAdapterMixin);

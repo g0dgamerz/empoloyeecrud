@@ -2,6 +2,12 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1">Employee Crud</span>
+    {{!-- {{#if session.isAuthenticated}} --}}
+
+    {{!-- <button type="button" {{on "click" this.logout}}>Logout</button> --}}
+    {{!-- {{else}} --}}
+    <LinkTo @route="admin.login">Login</LinkTo>
+    {{!-- {{/if}} --}}
   </div>
 </nav>
 {{outlet}}
