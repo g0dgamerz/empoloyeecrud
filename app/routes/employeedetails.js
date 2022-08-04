@@ -10,7 +10,7 @@ export default class AdminEmployeeRoute extends Route {
   async beforeModel(transition) {
     await this.session.setup();
     // this.intl.setLocale('pl-PL');
-    this.session.requireAuthentication(transition, 'admin.login');
+    this.session.requireAuthentication(transition, 'login');
   }
   model(params) {
     // console.log(this.store.findAll('employee'));

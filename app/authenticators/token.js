@@ -1,9 +1,10 @@
 import Base from 'ember-simple-auth/authenticators/base';
 
-export default Base.extend({
-  restore(data) {
+export default class TokenAuthenticator extends Base {
+  async restore(data) {
     console.log(data);
-  },
+  }
+
   async authenticate(username, password) {
     console.log('test');
     console.log(JSON.stringify(username, password));
@@ -15,15 +16,21 @@ export default Base.extend({
       body: JSON.stringify(username, password),
     });
     if (response.ok) {
-      console.log('token');
-      console.log('Bearer' + response.JSON());
-      return 'Bearer' + response;
+      // console.log('token');
+      // console.log(response.JSON());
+      // console.log('aftertoken');
+      // console.log('Bearer' + response.JSON());
+      // return response;
+      console.log('response ok');
+      console.log(response);
+      return response;
     } else {
       let error = await response.text();
       throw new Error(error);
     }
-  },
-  invalidate(data) {
+  }
+
+  async invalidate(data) {
     console.log(data);
-  },
-});
+  }
+}

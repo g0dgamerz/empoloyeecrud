@@ -11,7 +11,7 @@ export default class AdminEmployeedetailsController extends Controller {
     console.log('test');
     console.log(employee);
     employee.save().then(() => {
-      this.router.transitionTo('admin.index');
+      this.router.transitionTo('index');
     });
   }
 }

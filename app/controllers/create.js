@@ -24,7 +24,7 @@ export default class AdminCreateController extends Controller {
       modifiedDate: this.modifiedDate,
     });
     employee.save().then(() => {
-      this.router.transitionTo('admin.index', employee.employeeID);
+      this.router.transitionTo('index', employee.employeeID);
     });
   }
 }

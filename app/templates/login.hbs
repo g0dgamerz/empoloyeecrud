@@ -12,8 +12,8 @@
             type='text'
             class='form-control col-sm-3'
             id='userName'
-            @value={{this.username}}
-            onchange={{action "update" this.username}}
+            @value={{this.identification}}
+            onchange={{action "updateIdentification" this.identification}}
           />
           <div id='emailHelp' class='form-text'>We'll never share your personal details
             with anyone else.</div>
@@ -28,7 +28,7 @@
             class='form-control col-sm-3 col-form-label'
             id='password'
             @value={{this.password}}
-            onchange={{action 'update' this.password}}
+            onchange={{action 'updatePassword' this.password}}
           />
         </div>
 
